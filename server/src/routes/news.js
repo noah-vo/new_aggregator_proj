@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
             articles = await Promise.all(articles.map(async (article) => {
                 const response = await openai.chat.completions.create({
                     model: "gpt-3.5-turbo",
-                    messages: [{ role: "user", content: `Summarize this news, make it informative, condensed, and engaging: ${article.description}` }],
+                    messages: [{ role: "user", content: `Summarize this news, make it informative, and engaging: ${article.description}` }],
                     max_tokens: 100,
                 });
                 return { 
